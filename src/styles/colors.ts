@@ -1,0 +1,14 @@
+export enum Colors {
+  YELLOW_100 = '#FFB81C',
+  BLACK_FULL = '#000000',
+  BLACK_100 = '#101820',
+  BLACK_70 = '#707070',
+  BLACK_30 = '#B7BABC',
+  BLACK_20 = '#CFD1D2',
+  BLACK_10 = '#E7E8E9',
+  GREEN_50 = '#1AC057',
+  WHITE_100 = '#F7F8F7',
+  GRAY_100 = '#999999',
+  GRAY_70 = '#C4C4C4',
+  GRAY_50 = '#CCCCCC',
+}
