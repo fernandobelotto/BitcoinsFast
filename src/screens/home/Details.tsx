@@ -1,10 +1,10 @@
 import { View, Text } from 'react-native';
 import React from 'react';
 
-export default function EmailVerified() {
+export default function Details() {
   return (
     <View>
-      <Text>EmailVerified</Text>
+      <Text>Details</Text>
     </View>
   );
 }
