@@ -8,6 +8,7 @@ import { spanish } from './languages/spanish';
 
 i18n.init({
   fallbackLng: 'en',
+  compatibilityJSON: 'v3',
   resources: {
     en: english,
     de: deutsch,

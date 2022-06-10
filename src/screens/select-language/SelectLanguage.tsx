@@ -31,7 +31,7 @@ export default function SelectLanguage() {
           value: Languages[key],
         }))}
       />
-      <AppButton>Continue</AppButton>
+      <AppButton>{t('continue')}</AppButton>
       <AppFieldLabel>Email</AppFieldLabel>
     </PageLayout>
   );
