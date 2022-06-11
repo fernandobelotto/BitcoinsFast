@@ -1,13 +1,17 @@
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import AppButton from '../../components/app-button/app-button';
-import AppFieldLabel from '../../components/app-field-label/app-field-label';
 import AppSelect from '../../components/app-select/app-select';
 import { Heading } from '../../components/heading/heading';
 import { PageLayout } from '../../components/page-layout/page-layout';
 import { Languages } from '../../constants/language';
-import { useTranslation } from 'react-i18next';
+import { RootStackParamList } from '../../routes/app-routes';
+import { Colors } from '../../styles/colors';
 
-export default function SelectLanguage() {
+type SelectLanguageProps = NativeStackScreenProps<RootStackParamList>;
+
+export default function SelectLanguage({ navigation }: SelectLanguageProps) {
   const { t, i18n } = useTranslation();
 
   const [language, setLanguage] = useState(i18n.language);
@@ -17,9 +21,8 @@ export default function SelectLanguage() {
   };
 
   return (
-    <PageLayout>
+    <PageLayout backgroundColor={Colors.BLACK_100}>
       <Heading>{t('select_your_language')}</Heading>
-
       <AppSelect
         value={language}
         setValue={value => {
@@ -31,8 +34,12 @@ export default function SelectLanguage() {
           value: Languages[key],
         }))}
       />
-      <AppButton>{t('continue')}</AppButton>
-      <AppFieldLabel>Email</AppFieldLabel>
+      <AppButton
+        title={t('continue')}
+        onPress={() => {
+          navigation.push('EmailAddress');
+        }}
+      />
     </PageLayout>
   );
 }

@@ -1,10 +1,10 @@
-import { LoginRequestBody } from '../types/login-request';
+import { CreateRequestBody } from '../types/create-request';
 import { getAxiosInstance } from './axios-instance';
 
-export class SessionApi {
-  static async login(body: LoginRequestBody) {
+export class UserApi {
+  static async createAccount(body: CreateRequestBody) {
     const axiosInstance = getAxiosInstance();
-    const { data } = await axiosInstance.post('/login', body);
+    const { data } = await axiosInstance.post('/access/create', body);
     return data;
   }
 }

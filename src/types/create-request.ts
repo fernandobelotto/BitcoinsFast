@@ -1,10 +1,9 @@
-import { Language } from '../constants/language';
-import { Plataform } from '../constants/plataform';
+import { CustomPlatform } from '../constants/plataform';
 
 export type CreateRequestBody = {
   email_address: string;
-  platform: Plataform;
-  language: Language;
+  platform: CustomPlatform;
+  language: string;
   country: string;
-  state: string;
+  state?: string;
 };
