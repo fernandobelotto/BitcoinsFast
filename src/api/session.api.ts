@@ -1,10 +1,21 @@
-import { CreateRequestBody } from '../types/create-request';
+import { LoginRequestBody } from '../types/login-request';
+import { LoginResponse } from '../types/login-response';
+import { MonitorSessionResponse } from '../types/monitor-session-response';
 import { getAxiosInstance } from './axios-instance';
 
-export class UserApi {
-  static async createAccount(body: CreateRequestBody) {
+export class SessionApi {
+  static async login(body: LoginRequestBody): Promise<LoginResponse> {
     const axiosInstance = getAxiosInstance();
-    const { data } = await axiosInstance.post('/access/create', body);
+    const { data } = await axiosInstance.post('/login', body);
+    return data;
+  }
+
+  static async monitorSession(
+    session_key: string,
+  ): Promise<MonitorSessionResponse> {
+    const axiosInstance = getAxiosInstance();
+    console.log('fetcing session');
+    const { data } = await axiosInstance.get(`/access/magic/${session_key}`);
     return data;
   }
 }

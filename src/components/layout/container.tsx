@@ -5,7 +5,14 @@ export const Container = styled.View`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 300px;
   flex: 1;
   justify-content: space-between;
+`;
+
+export const CenterContainer = styled.View`
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  flex: 1;
+  justify-content: center;
 `;

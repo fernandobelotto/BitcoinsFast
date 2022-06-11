@@ -30,3 +30,13 @@ To run the application in your local environment, follow the steps:
 4. Run the development server with
 
     `npm run start`
+
+
+## Useful commands
+
+```
+yarn react-native generate-bootsplash src/assets/images/logomark.png \
+  --background-color=101820 \
+  --logo-width=100 \
+  --assets-path=assets \
+```

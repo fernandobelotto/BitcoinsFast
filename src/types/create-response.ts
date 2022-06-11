@@ -1,3 +1,3 @@
 export type CreateResponse = {
-  session_secret: string;
+  session_key: string;
 };

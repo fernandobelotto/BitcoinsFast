@@ -17,6 +17,7 @@ import { StateItemType } from '../../constants/usa-states';
 import { DefaultScreenProps } from '../../routes/app-routes';
 import { useAppDispatch, useAppSelector } from '../../store';
 import { setCountry, setCountryState } from '../../store/slices/user.slice';
+import { createAccount } from '../../store/thunks/create-account.thunk';
 import { Colors } from '../../styles/colors';
 import { getPlataform } from '../../utils/check-plataform';
 
@@ -44,25 +45,18 @@ export default function NewAccount({ navigation }: DefaultScreenProps) {
 
   function handleContinue() {
     if (country && email) {
-      console.log({
-        language: i18n.language,
-        platform: getPlataform(),
-        state: country_state?.code,
-        email_address: email,
-        country: country?.code,
-      });
       navigation.push('VerifyEmail');
-      // dispatch(
-      //   createAccount({
-      //     language: i18n.language,
-      //     platform: getPlataform(),
-      //     state: country_state?.code,
-      //     email_address: email,
-      //     country: country?.code,
-      //   }),
-      // ).then(() => navigation.push('VerifyEmail'));
-      // TODO: implement error toast
-      // .catch()
+      dispatch(
+        createAccount({
+          language: i18n.language,
+          platform: getPlataform(),
+          state: country_state?.code,
+          email_address: email,
+          country: country?.code,
+        }),
+      )
+        .then(() => navigation.push('VerifyEmail'))
+        .catch(console.log);
     }
   }
 

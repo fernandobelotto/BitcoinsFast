@@ -6,11 +6,12 @@ import {
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import EmailAddress from '../screens/email-address/EmailAddress';
-import VerifyEmail from '../screens/email-verified/EmailVerified';
+import VerifyEmail from '../screens/verify-email/VerifyEmail';
 import NewAccount from '../screens/new-account/NewAccount';
 import SelectLanguage from '../screens/select-language/SelectLanguage';
-import EmailVerified from '../screens/verify-email/VerifyEmail';
+import EmailVerified from '../screens/email-verified/EmailVerified';
 import { defaultScreenOptions } from './default-screen-options';
+import RNBootSplash from 'react-native-bootsplash';
 
 export type RootStackParamList = {
   SelectLanguage: undefined;

@@ -5,6 +5,8 @@ import { API_URL } from '@env';
 export function getAxiosInstance(): AxiosInstance {
   const state = store.getState();
 
+  console.log(API_URL);
+
   const { accessToken } = state.session;
 
   const axiosInstance = Axios.create({

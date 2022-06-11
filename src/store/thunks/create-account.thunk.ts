@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { UserApi } from '../../api/session.api';
+import { UserApi } from '../../api/user.api';
 import { CreateRequestBody } from '../../types/create-request';
 
 export const createAccount = createAsyncThunk(
