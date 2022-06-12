@@ -1,17 +1,24 @@
 import React from 'react';
-import { ButtonProps } from 'react-native';
+import { ActivityIndicator, ButtonProps } from 'react-native';
+import { Colors } from '../../styles/colors';
 import { AppButtonStyled, AppButtonTextStyled } from './app-button.style';
 
 type AppButtonProps = ButtonProps & {
   children?: string | undefined;
   disabled?: boolean;
+  loading?: boolean;
 };
+
 
 export default function AppButton(props: AppButtonProps) {
   return (
     <>
       <AppButtonStyled {...props}>
-        <AppButtonTextStyled {...props}>{props.title}</AppButtonTextStyled>
+        {props.loading ? (
+           <ActivityIndicator size="small" color={Colors.BLACK_100} />
+        ) : (
+          <AppButtonTextStyled {...props}>{props.title}</AppButtonTextStyled>
+        )}
       </AppButtonStyled>
     </>
   );

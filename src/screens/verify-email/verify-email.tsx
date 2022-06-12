@@ -1,5 +1,6 @@
-import { t } from 'i18next';
-import React, { useEffect } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
+import React, { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Center } from '../../components/layout/center';
 import { CenterContainer } from '../../components/layout/container';
 import { PaddingBottom } from '../../components/layout/padding-bottom';
@@ -9,15 +10,21 @@ import { H1 } from '../../components/typography/h1';
 import { Subtitle } from '../../components/typography/subtitle';
 import { useVerifyEmail } from '../../hooks/use-verify-email';
 import { DefaultScreenProps } from '../../routes/app-routes';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function VerifyEmail({ navigation }: DefaultScreenProps) {
-  const { isEmailVerified } = useVerifyEmail();
+  const { session_secret } = useVerifyEmail();
 
-  useEffect(() => {
-    if (isEmailVerified) {
-      navigation.push('EmailVerified');
-    }
-  }, [isEmailVerified, navigation]);
+  const { t } = useTranslation();
+
+  useFocusEffect(
+    useCallback(() => {
+      if (session_secret) {
+        AsyncStorage.setItem('session_secret', session_secret);
+        navigation.push('EmailVerified');
+      }
+    }, [navigation, session_secret]),
+  );
 
   return (
     <PageLayout>

@@ -7,14 +7,14 @@ interface UserState {
   email: string | null;
   country: CountryItemType | null;
   country_state: StateItemType | null;
-  loading: 'idle' | 'pending' | 'succeeded' | 'failed';
+  loading: boolean;
 }
 
 const initialState: UserState = {
   email: null,
   country: null,
   country_state: null,
-  loading: 'idle',
+  loading: false,
 };
 
 const userSlice = createSlice({
@@ -34,13 +34,13 @@ const userSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(createAccount.fulfilled, state => {
-        state.loading = 'succeeded';
+        state.loading = false;
       })
       .addCase(createAccount.pending, state => {
-        state.loading = 'pending';
+        state.loading = true;
       })
       .addCase(createAccount.rejected, state => {
-        state.loading = 'failed';
+        state.loading = false;
       });
   },
 });

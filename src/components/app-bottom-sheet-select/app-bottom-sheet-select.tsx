@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonProps, Text, TouchableOpacityProps } from 'react-native';
+import { Text, TouchableOpacityProps } from 'react-native';
 import styled from 'styled-components/native';
 import AppFieldLabel from '../app-field-label/app-field-label';
 
@@ -26,7 +26,8 @@ type AppTextInputProps = TouchableOpacityProps & {
   label: string;
   placeholder: string;
   value?: string;
-};
+}
+
 export default function AppBottomSheetSelect(props: AppTextInputProps) {
   return (
     <MinorPadding>

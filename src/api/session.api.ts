@@ -9,12 +9,10 @@ export class SessionApi {
     const { data } = await axiosInstance.post('/login', body);
     return data;
   }
-
   static async monitorSession(
     session_key: string,
   ): Promise<MonitorSessionResponse> {
     const axiosInstance = getAxiosInstance();
-    console.log('fetcing session');
     const { data } = await axiosInstance.get(`/access/magic/${session_key}`);
     return data;
   }

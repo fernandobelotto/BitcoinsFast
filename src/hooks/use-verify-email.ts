@@ -19,10 +19,9 @@ export const useVerifyEmail = () => {
 
       return () => {
         clearInterval(reference);
-        console.log('clear set interval');
       };
     }, [dispatch, session_key]),
   );
 
-  return { isEmailVerified: session_secret ? true : false };
+  return { isEmailVerified: session_secret ? true : false, session_secret };
 };

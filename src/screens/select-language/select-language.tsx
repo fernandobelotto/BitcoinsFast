@@ -1,5 +1,5 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import AppButton from '../../components/app-button/app-button';
 import AppSelect from '../../components/app-select/app-select';
@@ -10,7 +10,6 @@ import { PageLayout } from '../../components/page-layout/page-layout';
 import { Languages } from '../../constants/language';
 import { RootStackParamList } from '../../routes/app-routes';
 import { Colors } from '../../styles/colors';
-import RNBootSplash from 'react-native-bootsplash';
 
 type SelectLanguageProps = NativeStackScreenProps<RootStackParamList>;
 
@@ -18,10 +17,6 @@ export default function SelectLanguage({ navigation }: SelectLanguageProps) {
   const { t, i18n } = useTranslation();
 
   const [language, setLanguage] = useState(i18n.language);
-
-  useEffect(() => {
-    RNBootSplash.hide();
-  }, []);
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);

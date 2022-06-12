@@ -1,11 +1,11 @@
 import Axios, { AxiosInstance } from 'axios';
 import { store } from '../store';
 import { API_URL } from '@env';
+import { Alert } from 'react-native';
+import i18n from '../i18n/index';
 
 export function getAxiosInstance(): AxiosInstance {
   const state = store.getState();
-
-  console.log(API_URL);
 
   const { accessToken } = state.session;
 
@@ -18,6 +18,17 @@ export function getAxiosInstance(): AxiosInstance {
       Accept: '*/*',
     },
   });
+
+  axiosInstance.interceptors.response.use(
+    response => response,
+    error => {
+      Alert.alert(
+        'Error occured',
+        i18n.t(error.response?.data.toLowerCase().slice(1, -2)),
+      );
+      return Promise.reject(error);
+    },
+  );
 
   return axiosInstance;
 }

@@ -16,7 +16,7 @@ export default function EmailAddress({ navigation }: DefaultScreenProps) {
     handleSubmit,
     control,
     formState: { errors, isValid, isDirty },
-  } = useForm({
+  } = useForm<{ email: string }>({
     mode: 'onChange',
   });
 
@@ -58,7 +58,7 @@ export default function EmailAddress({ navigation }: DefaultScreenProps) {
           onPress={handleSubmit(onSubmit)}
           title={t('continue')}
           disabled={!isDirty || !isValid}
-          />
+        />
       </Container>
     </PageLayout>
   );
