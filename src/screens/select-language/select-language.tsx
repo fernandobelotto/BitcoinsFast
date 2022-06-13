@@ -44,9 +44,7 @@ export default function SelectLanguage({ navigation }: SelectLanguageProps) {
 
         <AppButton
           title={t('continue')}
-          onPress={() => {
-            navigation.push('EmailAddress');
-          }}
+          onPress={() => navigation.navigate('EmailAddress')}
         />
       </CenterContainer>
     </PageLayout>

@@ -95,13 +95,11 @@ export default function NewAccount({ navigation }: DefaultScreenProps) {
       <AppBottomSheet ref={countrySheetReference}>
         <CountryList onSelect={value => handleSelectCountry(value)} />
       </AppBottomSheet>
-      {country?.code === 'US' && (
         <AppBottomSheet ref={countryStateSheetReference}>
           <CountryStateList
             onSelect={value => handleSelectCountryState(value)}
           />
         </AppBottomSheet>
-      )}
     </PageLayout>
   );
 }

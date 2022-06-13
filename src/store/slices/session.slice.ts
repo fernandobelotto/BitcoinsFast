@@ -18,13 +18,19 @@ const initialState: SessionState = {
 const sessionSlice = createSlice({
   name: 'session',
   initialState,
-  reducers: {},
+  reducers: {
+    setSessionKey: (state, action) => {
+      state.session_key = action.payload;
+    },
+    setSessionSecret: (state, action) => {
+      state.session_secret = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder
 
       .addCase(monitorSession.fulfilled, (state, action) => {
         state.loading = 'succeeded';
-        state.session_secret = action.payload.secret;
       })
       .addCase(monitorSession.pending, state => {
         state.loading = 'pending';
@@ -50,4 +56,5 @@ const sessionSlice = createSlice({
   },
 });
 
+export const { setSessionKey, setSessionSecret } = sessionSlice.actions;
 export const SessionReducer = sessionSlice.reducer;

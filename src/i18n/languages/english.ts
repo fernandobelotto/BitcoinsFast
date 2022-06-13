@@ -31,5 +31,7 @@ export const english = {
     login_complete: 'Login complete',
     expired_magic_link: 'Expired magic link',
     country_not_supported: 'Country not supported',
+    state_not_supported: 'State not supported',
+    address_state_invalid: 'Address State Invalid',
   },
 };

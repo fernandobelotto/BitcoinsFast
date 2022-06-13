@@ -1,26 +1,25 @@
 import { NavigationContainer } from '@react-navigation/native';
 import {
   createNativeStackNavigator,
-  NativeStackScreenProps,
+  NativeStackScreenProps
 } from '@react-navigation/native-stack';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import RNBootSplash from 'react-native-bootsplash';
 import EmailAddress from '../screens/email-address/email-address';
-import VerifyEmail from '../screens/verify-email/verify-email';
+import EmailVerified from '../screens/email-verified/email-verified';
+import Home from '../screens/home/home';
 import NewAccount from '../screens/new-account/new-account';
 import SelectLanguage from '../screens/select-language/select-language';
-import EmailVerified from '../screens/email-verified/email-verified';
-import { defaultScreenOptions } from './default-screen-options';
-import Home from '../screens/home/home';
-import { useAuthentication } from '../hooks/use-authentication';
-import RNBootSplash from 'react-native-bootsplash';
+import VerifyEmail from '../screens/verify-email/verify-email';
 import { useAppSelector } from '../store';
+import { defaultScreenOptions } from './default-screen-options';
 
 export type RootStackParamList = {
   SelectLanguage: undefined;
   EmailAddress: undefined;
   VerifyEmail: undefined;
-  EmailVerified: undefined;
+  EmailVerified: { secret: string };
   NewAccount: undefined;
   Home: undefined;
 };
@@ -32,15 +31,11 @@ export default function AppRoutes() {
 
   const { session_secret } = useAppSelector(state => state.session);
 
-  const { isAuthenticated } = useAuthentication();
-
   const { t } = useTranslation();
   return (
     <>
       <NavigationContainer onReady={() => RNBootSplash.hide()}>
-        <Stack.Navigator
-          initialRouteName={isAuthenticated ? 'Home' : 'SelectLanguage'}
-          screenOptions={defaultScreenOptions}>
+        <Stack.Navigator screenOptions={defaultScreenOptions}>
           {session_secret ? (
             <>
               <Stack.Screen
@@ -54,13 +49,6 @@ export default function AppRoutes() {
             </>
           ) : (
             <>
-              <Stack.Screen
-                options={{
-                  headerShown: false,
-                }}
-                name="EmailVerified"
-                component={EmailVerified}
-              />
               <Stack.Screen
                 options={{
                   animation: 'slide_from_right',
@@ -89,6 +77,13 @@ export default function AppRoutes() {
                 }}
                 name="NewAccount"
                 component={NewAccount}
+              />
+              <Stack.Screen
+                options={{
+                  headerShown: false,
+                }}
+                name="EmailVerified"
+                component={EmailVerified}
               />
             </>
           )}

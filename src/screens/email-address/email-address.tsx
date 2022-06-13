@@ -24,7 +24,7 @@ export default function EmailAddress({ navigation }: DefaultScreenProps) {
 
   function onSubmit(values: { email: string }) {
     dispatch(setEmail(values.email));
-    navigation.push('NewAccount');
+    navigation.navigate('NewAccount');
   }
 
   return (

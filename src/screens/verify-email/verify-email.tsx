@@ -10,20 +10,20 @@ import { H1 } from '../../components/typography/h1';
 import { Subtitle } from '../../components/typography/subtitle';
 import { useVerifyEmail } from '../../hooks/use-verify-email';
 import { DefaultScreenProps } from '../../routes/app-routes';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { setValueInStorage } from '../../services/storage';
 
 export default function VerifyEmail({ navigation }: DefaultScreenProps) {
-  const { session_secret } = useVerifyEmail();
+  const { secret } = useVerifyEmail();
 
   const { t } = useTranslation();
 
   useFocusEffect(
     useCallback(() => {
-      if (session_secret) {
-        AsyncStorage.setItem('session_secret', session_secret);
-        navigation.push('EmailVerified');
+      if (secret) {
+        navigation.navigate('EmailVerified', { secret });
+        setValueInStorage('session_secret', secret);
       }
-    }, [navigation, session_secret]),
+    }, [navigation, secret]),
   );
 
   return (

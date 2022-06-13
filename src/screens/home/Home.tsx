@@ -1,8 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Heading } from '../../components/heading/heading';
-import { CenterContainer } from '../../components/layout/container';
 import { PageLayout } from '../../components/page-layout/page-layout';
+import { H1 } from '../../components/typography/h1';
 import { Colors } from '../../styles/colors';
 
 export default function Home() {
@@ -10,9 +9,7 @@ export default function Home() {
 
   return (
     <PageLayout backgroundColor={Colors.BLACK_100}>
-      <CenterContainer>
-        <Heading>{t('home')}</Heading>
-      </CenterContainer>
+      <H1>{t('home')}</H1>
     </PageLayout>
   );
 }
