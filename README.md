@@ -2,6 +2,11 @@
 
 __Hibrid mobile application made with react native__
 
+## showcase video
+
+https://user-images.githubusercontent.com/38187170/173268468-349334af-70c2-4ebb-bdd1-037ff3bd8df5.mp4
+
+
 ## Features
 
 1. Multiple screen navigation with react-navigation
