@@ -2,37 +2,13 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
-import styled from 'styled-components/native';
 import { StateItemType, states } from '../../constants/usa-states';
 import AppSearchField from '../app-search-field/app-search-field';
-
-const CountryStateListTitle = styled.Text`
-  font-size: ${props => props.theme.fontSize.md};
-  color: ${props => props.theme.black};
-  font-weight: ${props => props.theme.fontWeight.semiBold};
-  width: 100%;
-  text-align: center;
-  margin-bottom: 18px;
-`;
-
-const CountryStateName = styled.Text`
-  font-size: ${props => props.theme.fontSize.md};
-  color: ${props => props.theme.black};
-  font-weight: ${props => props.theme.fontWeight.semiBold};
-  width: 100%;
-  text-align: left;
-`;
-
-const CountryStateItem = styled.TouchableOpacity`
-  width: 100%;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom-width: 1px;
-  padding: 14px;
-  border-bottom-color: ${props => props.theme.black_10};
-  border-bottom-width: 2px;
-`;
+import {
+  CountryStateListTitle,
+  CountryStateItem,
+  CountryStateName,
+} from './country-state-list.style';
 
 type CountryStateListProps = {
   onSelect: (countryState: StateItemType) => void;

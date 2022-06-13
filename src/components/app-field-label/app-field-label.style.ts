@@ -5,5 +5,5 @@ export const AppFieldLabelStyle = styled.Text`
   text-align: left;
   width: 100%;
   margin-bottom: 8px;
-  font-weight: ${props => props.theme.fontWeight.semiBold};
+  font-family: ${props => props.theme.fontFamily.poppins_semibold};
 `;

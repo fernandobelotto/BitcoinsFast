@@ -2,7 +2,8 @@ import React, { Dispatch, SetStateAction } from 'react';
 
 import { Picker } from '@react-native-picker/picker';
 import { Colors } from '../../styles/colors';
-import styled from 'styled-components/native';
+import { Fonts } from '../../styles/fonts';
+import { BorderBox } from './app-select.style';
 
 type Option = {
   value: number | string | boolean;
@@ -15,13 +16,6 @@ type AppSelectProps = {
   setValue: Dispatch<SetStateAction<any>>;
 };
 
-const BorderBox = styled.View`
-  border-width: 1px;
-  border-color: ${Colors.GRAY_50};
-  border-radius: 4px;
-  padding: 3px;
-`;
-
 export default function AppSelect({
   options,
   value,
@@ -33,6 +27,7 @@ export default function AppSelect({
         dropdownIconColor={Colors.GRAY_100}
         style={{
           color: Colors.GRAY_100,
+          fontFamily: Fonts.POPPINS_BOLD,
         }}
         selectedValue={value}
         onValueChange={itemValue => {

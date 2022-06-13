@@ -1,7 +1,9 @@
 import BottomSheet from '@gorhom/bottom-sheet';
-import React, { useMemo, useRef } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import AppBottomSheetSelect from '../../components/app-bottom-sheet-select/app-bottom-sheet-select';
+import { AppBottomSheet } from '../../components/app-bottom-sheet/app-bottom-sheet';
 import AppButton from '../../components/app-button/app-button';
 import CountryList from '../../components/country-list/country-list';
 import CountryStateList from '../../components/country-state-list/country-state-list';
@@ -16,12 +18,6 @@ import { useAppDispatch, useAppSelector } from '../../store';
 import { setCountry, setCountryState } from '../../store/slices/user.slice';
 import { createAccount } from '../../store/thunks/create-account.thunk';
 import { getPlataform } from '../../utils/check-plataform';
-import { AppBottomSheet } from '../../components/app-bottom-sheet/app-bottom-sheet';
-import Toast from 'react-native-toast-message';
-import { notifyMessage } from '../../utils/notify-message';
-import { Alert } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
 
 export default function NewAccount({ navigation }: DefaultScreenProps) {
   const dispatch = useAppDispatch();
@@ -95,11 +91,9 @@ export default function NewAccount({ navigation }: DefaultScreenProps) {
       <AppBottomSheet ref={countrySheetReference}>
         <CountryList onSelect={value => handleSelectCountry(value)} />
       </AppBottomSheet>
-        <AppBottomSheet ref={countryStateSheetReference}>
-          <CountryStateList
-            onSelect={value => handleSelectCountryState(value)}
-          />
-        </AppBottomSheet>
+      <AppBottomSheet ref={countryStateSheetReference}>
+        <CountryStateList onSelect={value => handleSelectCountryState(value)} />
+      </AppBottomSheet>
     </PageLayout>
   );
 }

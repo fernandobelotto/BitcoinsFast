@@ -16,8 +16,8 @@ export const useVerifyEmail = () => {
       const reference = setInterval(() => {
         if (session_key) {
           dispatch(monitorSession(session_key))
-          .unwrap()
-          .then(result => setSecret(result.secret));
+            .unwrap()
+            .then(result => setSecret(result.secret));
         }
       }, 2000);
 

@@ -12,7 +12,7 @@ export const AppButtonStyled = styled.TouchableOpacity`
 export const AppButtonTextStyled = styled.Text`
   color: ${props => props.disabled ? props.theme.black_20 : props.theme.black};
   font-size: ${props => props.theme.fontSize.lg};
-  font-weight: ${props => props.theme.fontWeight.semiBold};
+  font-family: ${props => props.theme.fontFamily.poppins_bold};
 
   text-align: center;
 `;

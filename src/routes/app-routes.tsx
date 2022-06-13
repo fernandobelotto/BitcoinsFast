@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import {
   createNativeStackNavigator,
-  NativeStackScreenProps
+  NativeStackScreenProps,
 } from '@react-navigation/native-stack';
 import React from 'react';
 import { useTranslation } from 'react-i18next';

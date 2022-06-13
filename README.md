@@ -9,6 +9,15 @@ __Hibrid mobile application made with react native__
 3. Themed components with styled-components
 4. State management with redux-toolkit
 5. HTTP requests with axios
+6. SVG images with react-native-svg
+7. Typechecking with typescript
+
+## App Screenshots
+
+![](./assets/screenshots/1.png)
+![](./assets/screenshots/2.png)
+![](./assets/screenshots/3.png)
+![](./assets/screenshots/4.png)
 
 ## Setup
 

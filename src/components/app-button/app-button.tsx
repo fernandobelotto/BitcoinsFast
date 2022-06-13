@@ -9,13 +9,12 @@ type AppButtonProps = ButtonProps & {
   loading?: boolean;
 };
 
-
 export default function AppButton(props: AppButtonProps) {
   return (
     <>
       <AppButtonStyled {...props}>
         {props.loading ? (
-           <ActivityIndicator size="small" color={Colors.BLACK_100} />
+          <ActivityIndicator size="small" color={Colors.BLACK_100} />
         ) : (
           <AppButtonTextStyled {...props}>{props.title}</AppButtonTextStyled>
         )}
