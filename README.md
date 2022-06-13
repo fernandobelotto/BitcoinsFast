@@ -12,12 +12,11 @@ __Hibrid mobile application made with react native__
 6. SVG images with react-native-svg
 7. Typechecking with typescript
 
-## App Screenshots
+## Future improvements
 
-![](./assets/screenshots/1.png)
-![](./assets/screenshots/2.png)
-![](./assets/screenshots/3.png)
-![](./assets/screenshots/4.png)
+- add security layer with fingerprint (or face) scanner to access the app upon lunch (such as Nubank)
+- test different screen sizes and os versions
+
 
 ## Setup
 
